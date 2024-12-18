@@ -1,0 +1,12 @@
+
+1. https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local
+
+2. Download and Install Microsoft C++ Build Tools:
+    Go to the Microsoft C++ Build Tools website.
+    Download and run the installer.
+    During installation, make sure to select the following components:
+        * Desktop development with C++.
+        * MSVC v142 - Visual Studio 2019 C++ x64/x86 build tools.
+        * Windows 10 SDK (or latest SDK available).
+
+3. pip install pycuda==2024.1.2 --find-links https://www.lfd.uci.edu/~gohlke/pythonlibs/  

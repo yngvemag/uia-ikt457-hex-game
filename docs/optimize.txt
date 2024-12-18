@@ -1,0 +1,28 @@
+
+Number of Clauses (number_of_clauses): 
+    Controls the model complexity. Too few clauses might lead to underfitting, while too many can cause overfitting.
+
+Threshold (T): 
+    Regulates the voting threshold for accepting a clause as true. 
+    A higher threshold requires more clauses to agree on a prediction.
+
+Learning Rate (s): 
+    Governs how fast the model learns. Lower values make the model learn slowly, while higher values increase the 
+    learning speed but may lead to unstable training.
+
+Max Included Literals (max_included_literals): 
+    Limits the maximum number of literals that can be used by a clause. 
+    This parameter controls how complex individual clauses can become.
+
+
+1. Accuracy:
+    Accuracy is the most intuitive metric. It tells you how often your classifier is correct.
+2. Precision:
+    Precision answers the question: Of all the instances that were predicted as positive, how many were actually positive?
+3. Recall:
+    Recall answers the question: Of all the actual positives, how many did the model correctly identify?
+
+4. F1 Score:
+    The F1 score is the harmonic mean of precision and recall. 
+    It balances the two metrics into a single number, providing a more comprehensive evaluation, 
+    especially when you have an imbalanced dataset.

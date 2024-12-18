@@ -26,7 +26,7 @@ class HexboardFeatures:
     # 10. Center Control 
 
    
-    FEATURE_COUNT = 1  
+    FEATURE_COUNT = 10  
     
     def get_feature_symbols(self, node_id: int) -> list[str]:
         """Generate a list of feature symbols for a given node."""                
@@ -197,7 +197,7 @@ class HexboardFeatures:
 
         return neighbors
     
-    #CHRIS
+    
     def _get_internal_graph_for_node(self, node_id: int, player: int) -> dict:
         """
         Get the graph structure of the connected component (cluster) that the node belongs to.
@@ -270,7 +270,7 @@ class HexboardFeatures:
 
         return edge_nodes_count
     
-    #not fineshed 
+   
     def get_blocked_nodes(self) -> list[int]:
         blocked_nodes = []
         shape = self.hex_game_data.shape[0]
@@ -467,50 +467,50 @@ class HexboardFeatures:
         player_occupation = self.hex_game_data.flatten()[node_id]
 
         # Feature 1: Player steps completed
-        #player_steps_completed = self._calculate_steps_completed(node_id)
+        player_steps_completed = self._calculate_steps_completed(node_id)
 
         # Feature 2: Distance to the goal line
-        #distance_to_goal = self._get_distance_to_goal_line(node_id, player_occupation)
+        distance_to_goal = self._get_distance_to_goal_line(node_id, player_occupation)
 
         # Feature 3: Cluster size of connected components
-        #luster_size = self._get_cluster_size(node_id, player_occupation)
+        cluster_size = self._get_cluster_size(node_id, player_occupation)
 
         # Feature 4 & 5: Internal graph computations for degree and average degree
-        #internal_graph = self._get_internal_graph_for_node(node_id, player_occupation) if player_occupation != 0 else {}
+        internal_graph = self._get_internal_graph_for_node(node_id, player_occupation) if player_occupation != 0 else {}
         # Feature 4: Degree of the node (number of connections in the cluster)
-        #node_degree = self._get_degree_of_node(node_id, internal_graph) if player_occupation != 0 else 0
+        node_degree = self._get_degree_of_node(node_id, internal_graph) if player_occupation != 0 else 0
         # Feature 5: Average degree in the internal graph (connectivity within the cluster)
-        #avg_degree = self._get_average_degree(internal_graph) if player_occupation != 0 else 0
+        avg_degree = self._get_average_degree(internal_graph) if player_occupation != 0 else 0
 
         # Feature 6: Edge connectivity - number of nodes of this player connected to edges
-        #edge_connectivity = self.get_edge_connectivity(player_occupation) if player_occupation != 0 else 0
+        edge_connectivity = self.get_edge_connectivity(player_occupation) if player_occupation != 0 else 0
 
-        # Feature 7: Path robustness - number of unique paths from start to end edges (currently a placeholder)
-        #ath_robustness = self._get_path_robustness(player_occupation)
+        # Feature 7: Path robustness - number of unique paths from start to end edges 
+        path_robustness = self._get_path_robustness(player_occupation)
 
-        # Feature 8: Threat proximity - cells that create a connection with one move (placeholder)
+        # Feature 8: Threat proximity - cells that create a connection with one move 
         threat_proximity = self._get_threat_proximity(player_occupation)
         #or 
         #threat_proximity = self._check_if_threat_cell(node_id, player_occupation)
 
-        # Feature 9: Critical gaps - number of cells that connect clusters with one move (placeholder)
-        #critical_gaps = self._get_critical_gaps(player_occupation)
+        # Feature 9: Critical gaps - number of cells that connect clusters with one move 
+        critical_gaps = self._get_critical_gaps(player_occupation)
 
-        # Feature 12: Center control - number of player nodes in the central region (placeholder)
-        #center_control = self._get_center_control(player_occupation)
+        # Feature 10: Center control - number of player nodes in the central region 
+        center_control = self._get_center_control(player_occupation)
 
         # Combine all features into a single array
         features = np.array([
-            #player_steps_completed,
-            #distance_to_goal,
-            #cluster_size,
-            #node_degree,
-            #avg_degree,
-            #edge_connectivity,
-            #path_robustness ,
+            player_steps_completed,
+            distance_to_goal,
+            cluster_size,
+            node_degree,
+            avg_degree,
+            edge_connectivity,
+            path_robustness,
             threat_proximity,
-            #critical_gaps,
-            #center_control
+            critical_gaps,
+            center_control
         ], dtype=float)
         return features
 

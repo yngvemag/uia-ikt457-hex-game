@@ -15,9 +15,9 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 #hex_game_data_file = '../data/3x3_small-formatet.csv'
 #hex_game_data_file = '../data/hex_games_1_000_000_size_7_100.csv'
 #hex_game_data_file = '../data/hex_games_1_000_000_size_7_10000.csv'
-hex_game_data_file = '../data/hex_games_1_000_000_size_7_100000.csv'
+#hex_game_data_file = '../data/hex_games_1_000_000_size_7_100000.csv'
 #hex_game_data_file = '../data/hex_games_1_000_000_size_7_10000_balanced.csv'
-#hex_game_data_file = '../data/hex_games_100_000_balanced_80_20.csv'
+hex_game_data_file = '../data/hex_games_100_000_balanced_80_20.csv'
 #hex_game_data_file = '../data/hex_9x9_2moves.csv'
 #hex_game_data_file = '../data/hex_9x9_5moves.csv'
 
